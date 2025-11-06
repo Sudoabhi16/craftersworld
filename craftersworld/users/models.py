@@ -15,10 +15,10 @@ class Organisation(models.Model):
         ("gallery", "Art Gallery"),
     ]
 
-    name = models.CharField(max_length=255)
+    name = models.CharField(unique=True, db_index=True, max_length=255)
     type = models.CharField(max_length=50, choices=ORG_TYPE_CHOICES)
     address = models.TextField(blank=True)
-    contact_email = models.EmailField(unique=True,db_index=True)
+    contact_email = models.EmailField(unique=True, db_index=True)
     contact_phone = models.CharField(max_length=20, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 

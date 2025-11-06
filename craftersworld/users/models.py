@@ -18,7 +18,7 @@ class Organisation(models.Model):
     name = models.CharField(max_length=255)
     type = models.CharField(max_length=50, choices=ORG_TYPE_CHOICES)
     address = models.TextField(blank=True)
-    contact_email = models.EmailField()
+    contact_email = models.EmailField(unique=True,db_index=True)
     contact_phone = models.CharField(max_length=20, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
